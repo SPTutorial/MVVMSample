@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             x:Class="MVVMSample.Views.AddEmployeePage" Title="Add Employee">
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation 
+            PositionIn="Center"
+            PositionOut="Center"
+            ScaleIn="1.2"
+            ScaleOut="0.8"
+            DurationIn="400"
+            DurationOut="300"
+            EasingIn="SinOut"
+            EasingOut="SinIn"
+            HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <ContentPage.Content>
+        <Frame BackgroundColor="White" HasShadow="True" CornerRadius="10" Margin="20,0,20,0" VerticalOptions="Center">
+            <StackLayout Padding="5">
+                <Label Text="Add Employee" HorizontalOptions="Center" Margin="5" FontAttributes="Bold" TextColor="Black" FontSize="Medium"/>
+                <Label Text="Name" FontSize="Small" TextColor="Black"/>
+                <Entry TextColor="Black" FontSize="Small" Placeholder="Employee Name" Text="{Binding EmployeeName,Mode=TwoWay}"/>
+                <Label Text="Address" FontSize="Small" TextColor="Black"/>
+                <Entry TextColor="Black" FontSize="Small" Placeholder="Address" Text="{Binding Address,Mode=TwoWay}"/>
+
+                <StackLayout HorizontalOptions="End" Orientation="Horizontal">
+                    <Button Text="Save" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" 
+                        Margin="0" Command="{Binding SaveEmployee}" TextColor="ForestGreen"/>
+                    <Button Text="Close" BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" 
+                        Margin="0" Command="{Binding ClosePopup}" TextColor="ForestGreen"/>
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </ContentPage.Content>
+</pages:PopupPage>

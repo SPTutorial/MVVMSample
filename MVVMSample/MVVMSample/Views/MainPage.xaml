@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:eventToCommand="clr-namespace:MVVMSample.Behavior;assembly=MVVMSample"
+             xmlns:local="clr-namespace:MVVMSample"
+             x:Class="MVVMSample.MainPage" Title="Employees">
+    <ContentPage.Content>
+        <StackLayout  x:Name="mainStack">
+            <!--SearchBar-->
+            <SearchBar Text="{Binding SearchText}" x:Name="searchBar" TextChanged="SearchBar_TextChanged" SearchButtonPressed="SearchBar_SearchButtonPressed">
+                <!--<SearchBar.Behaviors>
+                    <eventToCommand:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchData}"/>
+                    <eventToCommand:EventToCommandBehavior EventName="SearchButtonPressed" Command="{Binding SearchBtnPress}"/>
+                </SearchBar.Behaviors>-->
+            </SearchBar>
+            <!---->
+                
+            <Label Text="No data found!" HorizontalOptions="Center" FontSize="Medium" Parent="Search Employee"
+                   TextColor="Gray" IsVisible="{Binding IsVisibleStatus}" Margin="10" x:Name="status"/>
+             
+            <!--ListView-->
+            <ListView ItemsSource="{Binding EmployeeList}" x:Name="listView">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <TextCell Text="{Binding Name}" Detail="{Binding Address}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.Behaviors>
+                    <eventToCommand:EventToCommandBehavior EventName="ItemTapped" Command="{Binding ListViewItemTapped}"/>
+                </ListView.Behaviors>
+            </ListView>
+            <!---->
+            <Button Text="Add Employee" HorizontalOptions="FillAndExpand" Margin="0" Command="{Binding AddEmployee}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

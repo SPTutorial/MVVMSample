@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MVVMSample.Views.LoginPage" BackgroundImage="background.png" NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" Grid.Column="0" BackgroundColor="Transparent" x:Name="frame1">
+                <Image HorizontalOptions="Center" VerticalOptions="Center" Source="logo.png" HeightRequest="80" WidthRequest="200"/>
+            </Grid>
+            <Grid Grid.Row="1" Grid.Column="0" BackgroundColor="White" x:Name="frame2">
+                <StackLayout Padding="20">
+                    <Label Text="Username" TextColor="#ff6a11" FontSize="Small" FontAttributes="Bold"/>
+                    <Entry Placeholder="Ex: John " HorizontalOptions="FillAndExpand" FontSize="Small" ReturnType="Next" Completed="userNameComplete"/>
+                    <Label Text="Password" TextColor="#ff6a11" FontSize="Small" FontAttributes="Bold"/>
+                    <Entry Placeholder="Enter Password" HorizontalOptions="FillAndExpand" IsPassword="True" FontSize="Small" Completed="passwordComplete" x:Name="pwd"/>
+                    <Button Text="Login" WidthRequest="100" HeightRequest="40" CornerRadius="26" Margin="0,3,0,0" FontAttributes="Bold"
+                            HorizontalOptions="EndAndExpand" BackgroundColor="#5e87b0" TextColor="White" x:Name="loginBtn" Clicked="LoginBtn_Clicked"/>
+                </StackLayout>
+            </Grid>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
