@@ -27,15 +27,6 @@ namespace MVVMSample.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
-        protected override void OnActivityResult(int requestCode, Result resultCode, Android.Content.Intent data)
-        {
-            base.OnActivityResult(requestCode, resultCode, data);
-            if (requestCode == 1)
-            {
-                GoogleSignInResult result = Auth.GoogleSignInApi.GetSignInResultFromIntent(data);
-                GoogleManager.Instance.OnAuthCompleted(result);
-            }
-        }
         public override void OnBackPressed()
         {
             if (Rg.Plugins.Popup.Popup.SendBackPressed(base.OnBackPressed))

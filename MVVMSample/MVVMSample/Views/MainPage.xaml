@@ -8,10 +8,10 @@
         <StackLayout  x:Name="mainStack">
             <!--SearchBar-->
             <SearchBar Text="{Binding SearchText}" x:Name="searchBar" TextChanged="SearchBar_TextChanged" SearchButtonPressed="SearchBar_SearchButtonPressed">
-                <!--<SearchBar.Behaviors>
+                <SearchBar.Behaviors>
                     <eventToCommand:EventToCommandBehavior EventName="TextChanged" Command="{Binding SearchData}"/>
                     <eventToCommand:EventToCommandBehavior EventName="SearchButtonPressed" Command="{Binding SearchBtnPress}"/>
-                </SearchBar.Behaviors>-->
+                </SearchBar.Behaviors>
             </SearchBar>
             <!---->
                 
